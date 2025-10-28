@@ -1,0 +1,735 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* ============================================== */
+/* ANIMACIÓN GENERAL DE TEXTOS (MODERNO) */
+/* ============================================== */
+
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar la animación al título principal */
+header h1 {
+    color: rgb(139, 2, 98);
+    flex: 1 100%; 
+    text-align: center;
+    /* Aplicar la animación al cargar */
+    animation: fadeInSlideDown 0.8s ease-out forwards;
+}
+
+/* Aplicar la animación a los enlaces de navegación */
+header nav a {
+    color: rgb(24, 14, 1);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+    /* Aplicar la animación con un retraso para que sea secuencial */
+    opacity: 0; /* Estado inicial para la animación */
+    animation: fadeInSlideDown 0.6s ease-out forwards;
+}
+
+/* Retrasos secuenciales para los enlaces */
+header nav a:nth-child(1) { animation-delay: 0.2s; } /* Inicio */
+header nav a:nth-child(2) { animation-delay: 0.3s; } /* Novedades */
+header nav a:nth-child(3) { animation-delay: 0.4s; } /* Contacto */
+header nav a:nth-child(4) { animation-delay: 0.5s; } /* Nosotras */
+
+
+/* Efecto Hover moderno en el NAV */
+header nav a:hover {
+    color: rgb(139, 2, 98); /* Color más vibrante al pasar el mouse */
+    text-decoration: underline;
+    font-size: 22px;
+    padding: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ============================================== */
+/* LAYOUT DE ENCABEZADO Y CONTENIDO (HEADER FIJO) */
+/* ============================================== */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(246, 241, 233);
+    padding: 20px;
+    flex-wrap: wrap; 
+    
+    /* MODIFICACIONES PARA HACERLO FIJO */
+    position: fixed; /* Mantiene el elemento fijo en la ventana */
+    top: 0; /* Lo fija en la parte superior */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+}
+
+header nav {
+    /* AJUSTE PARA CENTRAR Y DAR ESPACIO AL CARRITO (Móvil) */
+    flex: 1 1 auto; 
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 80px; 
+}
+
+
+.card{
+    width: 350px;
+    max-width: 90%; 
+    height: auto;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px lightgrey;
+    margin: 10px auto;
+    
+    /* ANIMACIÓN DE PRODUCTOS */
+    opacity: 0; 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+}
+.card img{
+    width: 100%;
+    height: auto;
+}
+.card-titulo{
+    text-align: center;
+}
+.card-descripcion{
+    text-align: center;
+}
+.card-descripcion button{
+    padding: 10px;
+    background-color: rgb(240, 240, 224);
+    border: none;
+    cursor: pointer;
+}
+.card-descripcion button:hover{
+    padding: 12px;
+    background-color: rgb(167, 82, 124);
+    color: white;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px;
+    /* MARGEN PARA QUE EL CONTENIDO NO QUEDE DEBAJO DEL HEADER FIJO */
+    margin-top: 120px; 
+    /* AGREGADO: Hacer que las secciones sean un contenedor de posicionamiento para el interruptor */
+    position: relative;
+}
+
+/* Media queries para pantallas más grandes */
+@media screen and (min-width: 600px) {
+    header h1 {
+        flex: 1;
+        text-align: left;
+    }
+    header nav {
+        flex: none;
+        margin-top: 0;
+        text-align: right;
+        margin-right: 120px; 
+    }
+    .card{
+        max-width: 350px;
+        margin: 10px;
+    }
+    section{
+        justify-content: space-around;
+    }
+}
+footer{
+    text-align: center;
+    padding:10px;
+    background-color: rgb(255, 239, 218);
+    color: black;
+    font-size:14px;
+}
+.fab{
+    margin:0 10px;
+    color: rgb(173, 32, 110);
+    font-size:20px;
+
+}
+.fab:hover{
+    color: rgb(255, 3, 217);
+    transition: all 0.3s ease-in-out;
+
+}
+
+/* --- Estilos Generales para la Sección de Contacto --- */
+.Contacto {
+    /* AJUSTE PARA HEADER FIJO */
+    padding-top: 120px; 
+    padding-bottom: 60px;
+    background-color: #ffc3c3;
+    color: #333;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.Contacto h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #3a436b;
+    border-bottom: 3px solid #423d6e;
+    display: inline-block;
+    padding-bottom: 5px;
+    animation: fadeInSlideDown 0.8s ease-out forwards;
+}
+.formulario {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align:justify;
+}
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    font-weight: bold;
+    color: #181833;
+}
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+.formulario input[type="text"]:focus,
+.formulario input[type="email"]:focus,
+.formulario textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.formulario textarea {
+    resize:vertical;
+}
+.formulario button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #580c48;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.formulario button[type="submit"]:hover {
+    background-color: #353b94;
+}
+@media (max-width: 600px) {
+    .Contacto {
+        padding: 40px 10px;
+    }
+    .Contacto h2 {
+        font-size: 2em;
+    }
+    .formulario {
+        padding: 20px;
+    }
+}
+
+/* ============================================== */
+/* Estilos Sección NOSOTRAS      */
+/* ============================================== */
+.Nosotros {
+    /* AJUSTE PARA HEADER FIJO */
+    padding-top: 120px; 
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(255, 251, 246); 
+    text-align: center;
+    color: #333;
+    font-family: "Bebas Neue", sans-serif;
+}
+.Nosotros h2 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: rgb(139, 2, 98); 
+    border-bottom: 3px solid rgb(139, 2, 98);
+    display: inline-block;
+    padding-bottom: 5px;
+    animation: fadeInSlideDown 0.8s ease-out forwards;
+}
+.Nosotros h3 {
+    color: rgb(167, 82, 124); 
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    animation: fadeInSlideDown 0.8s ease-out forwards;
+}
+.contenido-nosotros {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+.descripcion-nosotros {
+    flex: 1 1 400px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius:20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.descripcion-nosotros p {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size : 20px;
+    line-height: 1.6;
+    color: #000000;
+}
+.ubicacion-nosotros {
+    flex: 1 1 400px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.ubicacion-nosotros address {
+    font-style: normal;
+    font-family: Arial, sans-serif;
+    margin-bottom: 15px;
+    color: rgb(24, 14, 1);
+}
+.ubicacion-nosotros iframe {
+    border-radius: 5px;
+    width: 100%;
+    height: 300px;
+}
+@media screen and (max-width: 850px) {
+    .contenido-nosotros {
+        flex-direction: column;
+        align-items: center;
+    }
+    .descripcion-nosotras,
+    .ubicacion-nosotras {
+        flex: 1 1 100%;
+        max-width: 90%;
+    }
+}
+
+/* ============================================== */
+/* Estilos Sección NOVEDADES      */
+/* ============================================== */
+.Novedades {
+    /* AJUSTE PARA HEADER FIJO */
+    padding-top: 120px; 
+    padding-bottom: 60px;
+    background-color: #fce4ec;
+    text-align: center;
+    color: #000000;
+    font-family: "Bebas Neue", sans-serif;
+}
+.Novedades h2 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: rgb(139, 2, 98);
+    border-bottom: 3px solid rgb(139, 2, 98);
+    display: inline-block;
+    padding-bottom: 5px;
+    animation: fadeInSlideDown 0.8s ease-out forwards;
+}
+.contenedor-novedades {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.novedad-item {
+    flex: 1 1 250px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+.novedad-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.icon-novedad {
+    font-size: 3em;
+    color: rgb(167, 82, 124);
+    margin-bottom: 15px;
+}
+.novedad-item h3 {
+    font-size: 1.8em;
+    color: rgb(24, 14, 1);
+    margin-bottom: 10px;
+}
+.novedad-item p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+}
+.novedad-item.promo {
+    border: 3px solid #ff5722;
+}
+.novedad-item.destacado {
+    border: 3px solid #ffd700;
+}
+@media screen and (max-width: 768px) {
+    .novedad-item {
+        flex: 1 1 90%;
+    }
+}
+
+/* ============================================== */
+/* ANIMACIÓN DE APARICIÓN DE PRODUCTOS */
+/* ============================================== */
+
+/* Define la animación */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Clase que se añade con JavaScript para disparar la animación de productos */
+.card.visible {
+    animation-name: slideInFromLeft;
+    animation-duration: 0.5s; 
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; 
+}
+
+
+/* ============================================== */
+/* ANIMACIÓN DEL CARRITO AL AGREGAR PRODUCTO */
+/* ============================================== */
+
+/* Define la animación de "sacudida" */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-7px); 
+    }
+    40%, 80% {
+        transform: translateX(7px); 
+    }
+}
+
+/* Clase que se aplicará al ícono para ejecutar la animación */
+.carrito-icon.jiggle {
+    animation: shake 0.6s ease-in-out; 
+}
+
+
+/* ============================================== */
+/* Estilos Carrito, Modal y Switch Único */
+/* ============================================== */
+
+/* Estilo del ícono del carrito en el header */
+.carrito-icon {
+    position: absolute;
+    top: 25px; 
+    right: 20px; 
+    font-size: 24px;
+    color: rgb(139, 2, 98); 
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001; 
+}
+
+/* Estilos del interruptor del Modo Oscuro - ÚNICO */
+.modo-interruptor {
+    font-size: 24px;
+    color: rgb(139, 2, 98); 
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+    position: absolute; /* Posición absoluta para fijarlo */
+    top: 25px; 
+    right: 80px; /* Posicionado a la izquierda del carrito */
+}
+
+/* Contador de productos en el carrito */
+#contador-carrito {
+    background-color: rgb(167, 82, 124);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 14px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+/* Modal del Carrito (Fondo oscuro) */
+.carrito-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+.carrito-modal.visible {
+    display: block;
+}
+/* Contenido del Modal (Panel lateral) */
+.carrito-contenido {
+    background-color: #fefefe;
+    margin: 0; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 350px; 
+    height: 100%; 
+    position: fixed;
+    right: 0;
+    top: 0;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+/* Botón de cerrar */
+.cerrar-modal {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    align-self: flex-end; 
+    cursor: pointer;
+}
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: black;
+    text-decoration: none;
+}
+/* Estilos de los productos en el carrito */
+.items-carrito-scroll {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+.item-carrito {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: 
+        "nombre . eliminar"
+        "precio controles subtotal";
+    border-bottom: 1px dashed #ccc;
+    padding: 15px 0;
+    gap: 5px;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+.item-nombre { grid-area: nombre; font-weight: bold; }
+.item-precio { grid-area: precio; font-size: 16px; color: #555; }
+.item-subtotal { grid-area: subtotal; font-weight: bold; color: rgb(139, 2, 98); text-align: right; }
+.btn-eliminar { grid-area: eliminar; background: none; border: none; color: #cc0000; cursor: pointer; font-size: 16px; padding: 5px;}
+/* Controles de cantidad */
+.controles-cantidad {
+    grid-area: controles;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controles-cantidad button {
+    background-color: rgb(240, 240, 224);
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.controles-cantidad span {
+    padding: 0 10px;
+}
+/* Resumen y Botón Finalizar Compra */
+.carrito-resumen {
+    padding-top: 15px;
+    border-top: 2px solid rgb(139, 2, 98);
+    text-align: right;
+}
+.carrito-resumen p {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: "Bebas Neue", sans-serif;
+}
+#finalizar-compra {
+    background-color: rgb(139, 2, 98);
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Bebas Neue", sans-serif;
+    transition: background-color 0.3s;
+}
+#finalizar-compra:hover {
+    background-color: rgb(167, 82, 124);
+}
+/* Media Query para móvil: Modal full width */
+@media (max-width: 600px) {
+    .carrito-contenido {
+        width: 100%;
+    }
+}
+
+/* ============================================== */
+/* ESTILOS MODO OSCURO */
+/* ============================================== */
+
+/* Estilos de Fondo Generales (aplicados al body) */
+body.modo-oscuro {
+    background-color: #121212; /* Fondo muy oscuro */
+    color: #f0f0f0; /* Texto claro */
+}
+
+/* Header/Footer */
+body.modo-oscuro header {
+    background-color: #1f1f1f; /* Cabecera oscura */
+    border-bottom: 1px solid #333;
+}
+body.modo-oscuro header h1 {
+    color: #ffb3ff; /* Título color neón/claro */
+}
+body.modo-oscuro header nav a {
+    color: #cccccc;
+}
+body.modo-oscuro header nav a:hover {
+    color: #ffb3ff;
+}
+body.modo-oscuro footer {
+    background-color: #1f1f1f;
+    color: #cccccc;
+    border-top: 1px solid #333;
+}
+body.modo-oscuro .fab {
+    color: #ffb3ff;
+}
+/* Aplica al único interruptor */
+body.modo-oscuro .modo-interruptor {
+    color: #ffb3ff; 
+}
+
+
+/* Tarjetas de Productos */
+body.modo-oscuro .card {
+    background-color: #242424; /* Fondo oscuro de la tarjeta */
+    border: 1px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+}
+body.modo-oscuro .card-titulo h3,
+body.modo-oscuro .card-descripcion p {
+    color: #f0f0f0; 
+}
+body.modo-oscuro .card-descripcion button {
+    background-color: #383838;
+    color: #f0f0f0;
+}
+body.modo-oscuro .card-descripcion button:hover {
+    background-color: #ff80ff; /* Fucsia claro al hacer hover */
+    color: #121212;
+}
+
+/* Modal del Carrito */
+body.modo-oscuro .carrito-contenido {
+    background-color: #242424;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
+body.modo-oscuro .carrito-resumen {
+    border-top: 2px solid #ffb3ff; 
+}
+body.modo-oscuro #finalizar-compra {
+    background-color: #ff80ff;
+    color: #121212;
+}
+body.modo-oscuro #finalizar-compra:hover {
+    background-color: #ffb3ff;
+}
+
+/* Adaptar otras secciones */
+body.modo-oscuro .Nosotros {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+body.modo-oscuro .Nosotros h2 {
+    color: #ffb3ff;
+    border-bottom-color: #ffb3ff;
+}
+body.modo-oscuro .Nosotros h3 {
+    color: #ff80ff;
+}
+body.modo-oscuro .descripcion-nosotros,
+body.modo-oscuro .ubicacion-nosotros {
+    background-color: #242424;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+body.modo-oscuro .descripcion-nosotros p,
+body.modo-oscuro .ubicacion-nosotros address {
+    color: #cccccc;
+}
+
+body.modo-oscuro .Novedades {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+body.modo-oscuro .Novedades h2 {
+    color: #ffb3ff;
+    border-bottom-color: #ffb3ff;
+}
+body.modo-oscuro .novedad-item {
+    background-color: #242424;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+body.modo-oscuro .novedad-item h3 {
+    color: #ff80ff;
+}
+body.modo-oscuro .novedad-item p {
+    color: #cccccc;
+}
+body.modo-oscuro .icon-novedad {
+    color: #ffb3ff;
+}
+body.modo-oscuro .novedad-item.promo {
+    border-color: #ff80ff;
+}
+body.modo-oscuro .novedad-item.destacado {
+    border-color: #ffb3ff;
+}
