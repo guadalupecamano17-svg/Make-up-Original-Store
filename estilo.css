@@ -66,7 +66,7 @@ header{
     align-items: center;
     justify-content: space-between;
     background-color: rgb(246, 241, 233);
-    padding: 20px;
+    padding: 12px;
     flex-wrap: wrap; 
     
     /* MODIFICACIONES PARA HACERLO FIJO */
