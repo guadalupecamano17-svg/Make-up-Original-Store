@@ -1,73 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==============================================
-    // LÓGICA DEL MODO OSCURO (PERSISTENTE EN TODAS LAS PÁGINAS)
-    // ==============================================
-
-    // Selecciona el *único* interruptor en el header
-    const interruptorModo = document.querySelector('.modo-interruptor');
-    const iconoModo = interruptorModo ? interruptorModo.querySelector('i') : null;
-    const cuerpo = document.body;
-    
-    // Solo ejecuta la lógica si el interruptor existe en la página actual
-    if (interruptorModo) {
-
-        /**
-         * Actualiza la clase 'modo-oscuro' en el body y el icono del único interruptor.
-         * @param {boolean} esOscuro - Si el modo actual debe ser oscuro.
-         */
-        function actualizarUIModo(esOscuro) {
-            if (esOscuro) {
-                cuerpo.classList.add('modo-oscuro');
-                if (iconoModo) {
-                    iconoModo.classList.remove('fa-sun');
-                    iconoModo.classList.add('fa-moon');
-                }
-            } else {
-                cuerpo.classList.remove('modo-oscuro');
-                if (iconoModo) {
-                    iconoModo.classList.remove('fa-moon');
-                    iconoModo.classList.add('fa-sun');
-                }
-            }
-        }
-
-        // 1. Cargar la preferencia del usuario al iniciar (PERSISTENCIA)
-        function cargarPreferenciaModo() {
-            // Revisa lo que está guardado en el navegador
-            const modoGuardado = localStorage.getItem('modo-color');
-            const esOscuro = modoGuardado === 'oscuro';
-            actualizarUIModo(esOscuro);
-        }
-
-        // 2. Función para alternar el modo y guardar la preferencia
-        function alternarModo() {
-            const esOscuroActual = cuerpo.classList.contains('modo-oscuro');
-            const esOscuroNuevo = !esOscuroActual;
-
-            if (esOscuroNuevo) {
-                localStorage.setItem('modo-color', 'oscuro'); // Guarda el estado 'oscuro'
-            } else {
-                localStorage.setItem('modo-color', 'claro');  // Guarda el estado 'claro'
-            }
-
-            // Aplicar los cambios
-            actualizarUIModo(esOscuroNuevo);
-        }
-
-        // 3. Agregar el evento de clic al único interruptor
-        interruptorModo.addEventListener('click', alternarModo);
-
-        // 4. Ejecutar la función de carga al iniciar
-        cargarPreferenciaModo();
-    }
-
-
-    // ==============================================
-    // RESTO DE LA LÓGICA DEL CARRITO (EXISTENTE)
+    // 🛒 LÓGICA DEL CARRITO DE COMPRAS
     // ==============================================
     
-    // 1. Obtención de elementos del DOM
+    // 1. Obtención de elementos del DOM del Carrito
     const carritoIcon = document.getElementById('carrito-icon');
     const contadorCarrito = document.getElementById('contador-carrito');
     const carritoModal = document.getElementById('carrito-modal');
@@ -211,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // 4. Asignación de Eventos
+    // 4. Asignación de Eventos del Carrito
     
     // Evento para abrir el modal
     if (carritoIcon) carritoIcon.addEventListener('click', toggleModal);
@@ -274,6 +211,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Cargar el estado inicial del carrito al cargar la página
-    actualizarCarrito();
+    // ==============================================
+    // 🌙 LÓGICA DEL MODO OSCURO (PERSISTENTE EN TODAS LAS PÁGINAS)
+    // ==============================================
+
+    // Selecciona el *único* interruptor en el header
+    const interruptorModo = document.querySelector('.modo-interruptor');
+    const iconoModo = interruptorModo ? interruptorModo.querySelector('i') : null;
+    const cuerpo = document.body;
+    
+    // Solo ejecuta la lógica si el interruptor existe en la página actual
+    if (interruptorModo) {
+
+        /**
+         * Actualiza la clase 'modo-oscuro' en el body y el icono del único interruptor.
+         * @param {boolean} esOscuro - Si el modo actual debe ser oscuro.
+         */
+        function actualizarUIModo(esOscuro) {
+            if (esOscuro) {
+                cuerpo.classList.add('modo-oscuro');
+                if (iconoModo) {
+                    iconoModo.classList.remove('fa-sun');
+                    iconoModo.classList.add('fa-moon');
+                }
+            } else {
+                cuerpo.classList.remove('modo-oscuro');
+                if (iconoModo) {
+                    iconoModo.classList.remove('fa-moon');
+                    iconoModo.classList.add('fa-sun');
+                }
+            }
+        }
+
+        // 1. Cargar la preferencia del usuario al iniciar (PERSISTENCIA)
+        function cargarPreferenciaModo() {
+            // Revisa lo que está guardado en el navegador
+            const modoGuardado = localStorage.getItem('modo-color');
+            const esOscuro = modoGuardado === 'oscuro';
+            actualizarUIModo(esOscuro);
+        }
+
+        // 2. Función para alternar el modo y guardar la preferencia
+        function alternarModo() {
+            const esOscuroActual = cuerpo.classList.contains('modo-oscuro');
+            const esOscuroNuevo = !esOscuroActual;
+
+            if (esOscuroNuevo) {
+                localStorage.setItem('modo-color', 'oscuro'); // Guarda el estado 'oscuro'
+            } else {
+                localStorage.setItem('modo-color', 'claro');  // Guarda el estado 'claro'
+            }
+
+            // Aplicar los cambios
+            actualizarUIModo(esOscuroNuevo);
+        }
+
+        // 3. Agregar el evento de clic al único interruptor
+        interruptorModo.addEventListener('click', alternarModo);
+        
+        // 4. Ejecutar la función de carga al iniciar
+        cargarPreferenciaModo();
+    }
+
+    // ==============================================
+    // 🚀 EJECUCIÓN INICIAL AL CARGAR LA PÁGINA
+    // ==============================================
+    
+    // Nota: La llamada a actualizarCarrito() ya estaba aquí.
+    actualizarCarrito(); 
 });

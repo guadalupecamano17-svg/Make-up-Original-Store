@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make-up original store</title>
-  <link rel="stylesheet" href="estilo.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+    <title>Make-up original store - Contacto</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <header>
         <h1>Make-up original store</h1>
         <nav>
-        <a href="index.html">Inicio</a>
-        <a href="Novedades.html">Novedades</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="Nosotras.html">Nosotras</a>
+            <a href="index.html">Inicio</a>
+            <a href="Novedades.html">Novedades</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Nosotras.html">Nosotras</a>
         </nav>
-    </header> 
-<section class="Contacto">
-<h2>Contáctanos</h2>
-        <Form class="formulario">
-            <label for="nombre">Nombre:</label>
-<input type="text" id="nombre" placeholder="Tu nombre" required>
-<label for="email">Correo:</label>
-<input type="email" id="email" placeholder="Tu correo electrónico" required >
-<label for="mensaje">Mensaje:</label>
-<textarea id="Mensaje" rows="5" placeholder="Escribí tu mensaje" required></textarea>
-<button type="submit">Enviar</button>
-</section>
-<div class="modo-interruptor">
+        <div class="carrito-icon" id="carrito-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="contador-carrito">0</span>
+        </div>
+        <div class="modo-interruptor">
             <i class="fas fa-sun"></i> 
         </div>
-        </Form>
-<link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script> 
+    </header> 
 
-</footer>
+    <section class="Contacto">
+        <h2>Contáctanos</h2>
+        <form class="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+            <label for="email">Correo:</label>
+            <input type="email" id="email" placeholder="Tu correo electrónico" required >
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="Mensaje" rows="5" placeholder="Escribí tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; Make-up original store - Todos los derechos reservados
+        <div class="social-icons">
+            <a href="https://www.instagram.com/maybelline/"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/maybellinearg"><i class="fab fa-x"></i></a>
+            <a href="https://www.facebook.com/MaybellineNewYorkArgentina/?locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </footer>
+    
+    <script src="app.js"></script> 
+</body>
+</html>
