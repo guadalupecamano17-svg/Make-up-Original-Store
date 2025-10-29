@@ -191,9 +191,9 @@ footer{
     animation: fadeInSlideDown 0.8s ease-out forwards;
 }
 .formulario {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 120px;
+    padding: 80px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -201,8 +201,8 @@ footer{
 }
 .formulario label {
     display: block;
-    margin-bottom: 10px;
-    margin-top: 25px;
+    margin-bottom: 8px;
+    margin-top: 20px;
     font-weight: bold;
     color: #181833;
 }
@@ -210,8 +210,8 @@ footer{
 .formulario input[type="email"],
 .formulario textarea {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
